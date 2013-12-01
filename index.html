@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SidebarJS</title>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' />
+		<link rel="stylesheet" href="/css/lib/fontello.css" />
+		<link rel="stylesheet" href="/css/lib/normalize.css" />
+		
+		<link rel="stylesheet" href="/css/index.css" />
+		
+		<link rel="stylesheet" href="/css/sidebar.css" />
+		
+	</head>
+	<body>
+		
+
+<div class="wrapper jsc-sidebar-content jsc-sidebar-pulled">
+	<section>
+		<p><a href="#" class="icon-menu link-menu jsc-sidebar-trigger"></a></p>
+	</section>
+	<section class="main-content">
+		<h1 class="headline"><span class="headline-main">Sidebar</span>JS</h1>
+		<p>v 0.0.1</p>
+		<p>SidebarJS is a jQuery plugin for side navigation.</p>
+		<p class="download"><a href="" class="btn-download">Download</a></p>
+	<section>
+</div>
+
+		<nav class="sidebar jsc-sidebar" id="jsi-nav">
+	<ul class="sidebar-list">
+		<li><a href="./" class="current">SidebarJS</a></li>
+		<li><a href="#">View on Github</a></li>
+		<li><a href="#">Download</a></li>
+	</ul>
+</nav>
+
+
+		<script src="/js/lib/jquery.min.js"></script>
+		
+		<script src="/js/sidebar.js"></script>
+		
+		<script>
+			$('#jsi-nav').sidebar();
+		</script>
+	</body>
+</html>

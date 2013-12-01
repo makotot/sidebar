@@ -1,0 +1,84 @@
+@charset "UTF-8"
+
+body
+    margin: 0
+    font-size: 20px
+    font-family: 'Source Sans Pro', helvetica, sans-serif
+    font-weight: 200
+    color: #6E6E6E
+
+a
+    color: #515151
+    text-decoration: none
+
+p
+    margin-top: 0
+    margin-bottom: 0
+    padding-top: 10px
+    padding-bottom: 10px
+
+h1
+    font-weight: 200
+
+ul
+    list-style-type: none
+    padding: 0
+
+
+
+::selection
+    background-color: #E77878
+    color: #FFF
+
+
+
+.wrapper
+    width: 100%
+    box-sizing: border-box
+    border-top: 2px solid #6C6C6C
+    background-color: #FEFEFE
+
+.link-menu
+    font-size: 2.2rem
+    &:hover
+        color: #807D7D
+
+.main-content
+    padding-top: 80px
+    padding-bottom: 80px
+    text-align: center
+    
+.headline
+    font-size: 3.6rem
+    font-weight: 400
+    
+.headline-main
+    color: #3C3C3C
+
+.download
+    padding-top: 40px
+.btn-download
+    display: inline-block
+    text-align: center
+    padding: 6px
+    background-color: #424242
+    color: #FFF
+    border: 2px solid #6C6C6C
+    font-size: 1.2rem
+    &:hover
+        background-color: #6C6C6C
+        border: 2px solid #424242
+
+.sidebar
+    background-color: #312F2F
+    li + li
+        margin-top: 12px
+    li
+        a
+            padding: 4px 10px
+            display: block
+            color: #CECECE
+            &:hover
+                background-color: #424242
+        a.current
+            background-color: #6B6464

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SidebarJS</title>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400' rel='stylesheet' />
+		<link rel="stylesheet" href="{{basepath}}/css/lib/fontello.css" />
+		<link rel="stylesheet" href="{{basepath}}/css/lib/normalize.css" />
+		{{#styles}}
+		<link rel="stylesheet" href="{{basepath}}/css/{{.}}" />
+		{{/styles}}
+	</head>
+	<body>
+		{{>body}}
+		{{>sidebar}}
+
+		<script src="{{basepath}}/js/lib/jquery.min.js"></script>
+		{{#scripts}}
+		<script src="{{basepath}}/js/{{.}}"></script>
+		{{/scripts}}
+		<script>
+			$('#jsi-nav').sidebar();
+		</script>
+	</body>
+</html>
