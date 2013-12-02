@@ -12,7 +12,15 @@
 	Sidebar.prototype = {
 
 		defaults: {
+		},
 
+		init: function () {
+			this.config = $.extend({}, this.defaults, this.opts, this.meta);
+
+			this.detect3dEnabled();
+			this.attachEvent();
+
+			return this;
 		},
 
 		pushTransitionEndEvent: 'transitionEnd.push webkitTransitionEnd.push transitionend.push msTransitionEnd.push',
@@ -49,13 +57,6 @@
 			return (has3dSupport !== undefined && has3dSupport.length && has3dSupport !== 'none');
 		},
 
-		init: function () {
-			this.detect3dEnabled();
-			this.attachEvent();
-
-			return this;
-		},
-
 		detect3dEnabled: function () {
 			if (this.isAndroid() || !this.hasTranslate3dSupport()) {
 				this.$content.removeClass('jsc-sidebar-pulled');
@@ -89,6 +90,7 @@
 			if (this.isAndroid() || !this.hasTranslate3dSupport()) {
 				this.slidePull();
 			} else {
+
 				if (!this.$content.hasClass('jsc-sidebar-push-end')) {
 					return;
 				}
@@ -116,9 +118,11 @@
 				marginLeft: distance
 			}).promise().done($.proxy(function () {
 				this.$content.addClass('jsc-sidebar-scroll-disabled');
+
 				if (!this.$content.data('sidebar-first-click')) {
 					this.$content.data('sidebar-first-click', 1);
 				}
+
 			}, this));
 		},
 
