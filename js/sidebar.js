@@ -129,21 +129,21 @@
 		detectPushEnd: function () {
 			this.$content.addClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled');
 
-			this.$content.off(this.pushTransitionEndEvent);
-
-			this.$content.on(this.pullTransitionEndEvent, $.proxy(function () {
-				this.detectPullEnd();
-			}, this));
+			this.$content
+				.off(this.pushTransitionEndEvent)
+				.on(this.pullTransitionEndEvent, $.proxy(function () {
+					this.detectPullEnd();
+				}, this));
 		},
 
 		detectPullEnd: function () {
 			this.$content.removeClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled').addClass('jsc-sidebar-pull-end');
 
-			this.$content.off(this.pullTransitionEndEvent);
-
-			this.$content.on(this.pushTransitionEndEvent, $.proxy(function () {
-				this.detectPushEnd();
-			}, this));
+			this.$content
+				.off(this.pullTransitionEndEvent)
+				.on(this.pushTransitionEndEvent, $.proxy(function () {
+					this.detectPushEnd();
+				}, this));
 		}
 
 	};
