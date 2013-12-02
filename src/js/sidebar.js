@@ -1,5 +1,10 @@
 (function (window, $) {
 
+	// TODO
+	// - check the actual
+	// - add options (callback)
+	// - some demo
+
 	var Sidebar = function (target, opts) {
 		this.$sidebar = $(target);
 		this.$body = $(document.body);
@@ -8,7 +13,7 @@
 		this.sidebarW = this.$sidebar.width();
 		this.opts = opts;
 		this.meta = this.$sidebar.data('sidebar-options');
-	}
+	};
 
 	Sidebar.prototype = {
 

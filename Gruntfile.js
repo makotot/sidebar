@@ -48,12 +48,10 @@ module.exports = function (grunt) {
 		},
 
 		jshint: {
-			files: {
-				src: []
-			},
 			options: {
 				reporter: require('jshint-stylish')
 			},
+			all: ['src/js/*.js']
 		},
 
 		assemble: {
@@ -128,5 +126,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', ['assemble', 'sass', 'jshint']);
 	grunt.registerTask('install', ['bower:install', 'copy']);
+	grunt.registerTask('lint', ['jshint']);
 	grunt.registerTask('server', ['assemble', 'sass', 'jshint', 'connect', 'watch']);
 };
