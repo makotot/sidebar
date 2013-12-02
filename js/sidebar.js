@@ -5,6 +5,7 @@
 		this.$body = $(document.body);
 		this.$content = this.$body.find('.jsc-sidebar-content');
 		this.$trigger = this.$body.find('.jsc-sidebar-trigger');
+		this.sidebarW = this.$sidebar.width();
 		this.opts = opts;
 		this.meta = this.$sidebar.data('sidebar-options');
 	}
@@ -69,13 +70,13 @@
 				this.push();
 			}, this));
 
-			this.$content.on(this.pushTransitionEndEvent, $.proxy(function (e) {
-				this.detectPushEnd();
-			}, this));
-
-			this.$content.on('click', $.proxy(function (e) {
-				this.pull();
-			}, this));
+			this.$content
+				.on(this.pushTransitionEndEvent, $.proxy(function (e) {
+					this.detectPushEnd();
+				}, this))
+				.on('click', $.proxy(function (e) {
+					this.pull();
+				}, this));
 		},
 
 		push: function () {
@@ -112,7 +113,7 @@
 		},
 
 		slidePush: function () {
-			var distance = this.isAndroid() ? '140px' : '220px';
+			var distance = this.sidebarW + 'px';
 
 			this.$content.stop().animate({
 				marginLeft: distance
@@ -127,9 +128,8 @@
 		},
 
 		detectPushEnd: function () {
-			this.$content.addClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled');
-
 			this.$content
+				.addClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled')
 				.off(this.pushTransitionEndEvent)
 				.on(this.pullTransitionEndEvent, $.proxy(function () {
 					this.detectPullEnd();
@@ -137,9 +137,9 @@
 		},
 
 		detectPullEnd: function () {
-			this.$content.removeClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled').addClass('jsc-sidebar-pull-end');
-
 			this.$content
+				.removeClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled')
+				.addClass('jsc-sidebar-pull-end')
 				.off(this.pullTransitionEndEvent)
 				.on(this.pushTransitionEndEvent, $.proxy(function () {
 					this.detectPushEnd();
