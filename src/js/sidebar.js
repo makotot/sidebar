@@ -2,8 +2,8 @@
 
 	// TODO
 	// - check the actual
-	// - add options (callback)
-	// - some demo
+	// - add options
+	// - some demos, patterns
 
 	var Sidebar = function (target, opts) {
 		this.$sidebar = $(target);
@@ -18,6 +18,8 @@
 	Sidebar.prototype = {
 
 		defaults: {
+			pullCb: function () {},
+			pushCb: function () {}
 		},
 
 		init: function () {
@@ -78,6 +80,7 @@
 			this.$content
 				.on(this.pushTransitionEndEvent, $.proxy(function (e) {
 					this.detectPushEnd();
+					this.config.pushCb();
 				}, this))
 				.on('click', $.proxy(function (e) {
 					this.pull();
@@ -88,7 +91,9 @@
 			if (this.isAndroid() || !this.hasTranslate3dSupport()) {
 				this.slidePush();
 			} else {
-				this.$content.removeClass('jsc-sidebar-pull-end').addClass('jsc-sidebar-pushed');
+				this.$content
+					.removeClass('jsc-sidebar-pull-end')
+					.addClass('jsc-sidebar-pushed');
 			}
 		},
 
@@ -138,6 +143,7 @@
 				.off(this.pushTransitionEndEvent)
 				.on(this.pullTransitionEndEvent, $.proxy(function () {
 					this.detectPullEnd();
+					this.config.pullCb();
 				}, this));
 		},
 

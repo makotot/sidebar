@@ -44,7 +44,10 @@
 		<script src="js/sidebar.js"></script>
 		
 		<script>
-			$('#jsi-nav').sidebar();
+			$('#jsi-nav').sidebar({
+				pullCb: function () { console.log('pull'); },
+				pushCb: function () { console.log('push'); }
+			});
 		</script>
 	</body>
 </html>

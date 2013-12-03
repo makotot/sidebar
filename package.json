@@ -1,8 +1,7 @@
 {
   "name": "sidebar",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
-  "main": "index.js",
   "author": "makotot",
   "license": "MIT",
   "devDependencies": {
@@ -12,10 +11,10 @@
 	"grunt-contrib-sass": "*",
 	"grunt-contrib-connect": "*",
 	"grunt-contrib-watch": "*",
-	"connect-livereload": "*",
-	"grunt-bower-task": "*",
 	"grunt-contrib-jshint": "*",
 	"grunt-contrib-copy": "*",
+	"connect-livereload": "*",
+	"grunt-bower-task": "*",
 	"jshint-stylish": "*"
   }
 }
