@@ -102,6 +102,12 @@ module.exports = function (grunt) {
 						flatten: true,
 						src: 'bower_components/**/*.css',
 						dest: 'css/lib'
+					},
+					{
+						expand: true,
+						flatten: true,
+						src: 'bower_components/**/*.map',
+						dest: 'js/lib'
 					}
 				]
 			},
