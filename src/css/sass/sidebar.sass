@@ -1,6 +1,7 @@
 @charset "UTF-8"
 
-$sidebarW: 220px
+$sidebar-w: 220px
+$sidebar-duration: 0.5s
 
 html, body
     height: 100%
@@ -9,7 +10,7 @@ html, body
     position: fixed
     top: 0
     left: 0
-    width: $sidebarW
+    width: $sidebar-w
     height: 100%
 
 .jsc-sidebar-content
@@ -22,9 +23,9 @@ html, body
 
 .jsc-sidebar-pulled
     transition: transform 0.5s ease
-    -webkit-transition: -webkit-transform 0.5s ease
-    -moz-transition: -moz-transform 0.5s ease
-    -ms-transition: -ms-transform 0.5s ease
+    -webkit-transition: -webkit-transform $sidebar-duration ease
+    -moz-transition: -moz-transform $sidebar-duration ease
+    -ms-transition: -ms-transform $sidebar-duration ease
     transform: translate3d(0, 0, 0)
     -webkit-transform: translate3d(0, 0, 0)
     -moz-transform: translate3d(0, 0, 0)
@@ -33,10 +34,10 @@ html, body
     -webkit-perspective: 1000
 
 .jsc-sidebar-pushed
-    transform: translate3d($sidebarW, 0, 0)
-    -webkit-transform: translate3d($sidebarW, 0, 0)
-    -moz-transform: translate3d($sidebarW, 0, 0)
-    -ms-transform: translate3d($sidebarW, 0, 0)
+    transform: translate3d($sidebar-w, 0, 0)
+    -webkit-transform: translate3d($sidebar-w, 0, 0)
+    -moz-transform: translate3d($sidebar-w, 0, 0)
+    -ms-transform: translate3d($sidebar-w, 0, 0)
 
 
 .jsc-sidebar-scroll-disabled
