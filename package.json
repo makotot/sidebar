@@ -15,7 +15,6 @@
 		"grunt-contrib-copy": "*",
 		"connect-livereload": "*",
 		"grunt-bower-task": "*",
-		"jshint-stylish": "*",
 		"jshint-table-reporter": "*"
 	}
 }
