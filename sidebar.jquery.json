@@ -1,0 +1,19 @@
+{
+	"name": "sidebar.js",
+	"title": "sidebar.js",
+	"description": "SidebarJS is a jQuery plugin for sidebar",
+	"keywords": [],
+	"version": "0.0.5",
+	"author": {
+		"name": "makotot",
+		"url": "https://github.com/makotot"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/mit-license.php"
+		}
+	],
+	"homepage": "http://makotot.github.io/sidebar/",
+	"bugs": "https://github.com/makotot/sidebar/issues"
+}
