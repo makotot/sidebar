@@ -1,8 +1,8 @@
 {
-	"name": "sidebar.js",
+	"name": "sidebar",
 	"title": "sidebar.js",
 	"description": "SidebarJS is a jQuery plugin for sidebar",
-	"keywords": [],
+	"keywords": ["sidebar", "navi", "menu", "jquery", "ui"],
 	"version": "0.0.5",
 	"author": {
 		"name": "makotot",
@@ -15,5 +15,8 @@
 		}
 	],
 	"homepage": "http://makotot.github.io/sidebar/",
-	"bugs": "https://github.com/makotot/sidebar/issues"
+	"bugs": "https://github.com/makotot/sidebar/issues",
+	"dependencies": {
+		"jquery": ">=1.8"
+	}
 }
