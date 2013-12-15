@@ -5,6 +5,7 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		path: {
+			src: 'src'
 		},
 
 		watch: {
@@ -12,20 +13,20 @@ module.exports = function (grunt) {
 				livereload: true
 			},
 			html: {
-				files: ['src/**/*.hbs', 'src/templates/includes/**/*.hbs'],
-				tasks: ['assemble']
+				files: ['<%= path.src %>/**/*.hbs', '<%= path.src %>/templates/includes/**/*.hbs'],
+				tasks: ['newer:assemble']
 			},
 			js: {
-				files: 'src/js/*.js',
-				tasks: ['copy:js', 'jshint']
+				files: '<%= path.src %>/js/*.js',
+				tasks: ['newer:copy:js', 'newer:jshint']
 			},
 			sass: {
-				files: 'src/css/sass/**/*.sass',
-				tasks: ['sass']
+				files: '<%= path.src %>/css/sass/**/*.sass',
+				tasks: ['newer:sass']
 			},
 			json: {
-				files: 'src/data/*.json',
-				tasks: ['assemble']
+				files: '<%= path.src %>/data/*.json',
+				tasks: ['newer:assemble']
 			}
 		},
 
@@ -51,19 +52,19 @@ module.exports = function (grunt) {
 			options: {
 				reporter: require('jshint-table-reporter')
 			},
-			all: ['src/js/*.js']
+			all: ['<%= path.src %>/js/*.js']
 		},
 
 		assemble: {
 			options: {
-				layout: 'src/layouts/default.hbs',
-				partials: ['src/templates/includes/*.hbs'],
+				layout: '<%= path.src %>/layouts/default.hbs',
+				partials: ['<%= path.src %>/templates/includes/*.hbs'],
 				flatten: true,
-				data: 'src/data/*.{json,yml}'
+				data: '<%= path.src %>/data/*.{json,yml}'
 			},
 			pages: {
 				files: {
-					'.': ['src/pages/*.hbs']
+					'.': ['<%= path.src %>/pages/*.hbs']
 				}
 			}
 		},
@@ -72,7 +73,7 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: 'src/css/sass',
+					cwd: '<%= path.src %>/css/sass',
 					src: '*.sass',
 					dest: 'css',
 					ext: '.css'
@@ -117,7 +118,7 @@ module.exports = function (grunt) {
 					{
 						expand: true,
 						flatten: true,
-						src: 'src/js/*.js',
+						src: '<%= path.src %>/js/*.js',
 						dest: 'js/'
 					}
 				]
@@ -130,9 +131,10 @@ module.exports = function (grunt) {
 		pattern: ['grunt-*', 'assemble']
 	});
 
-	grunt.registerTask('default', ['assemble', 'sass', 'jshint']);
-	grunt.registerTask('install', ['bower:install', 'copy']);
-	grunt.registerTask('lint', ['jshint']);
-	grunt.registerTask('server', ['assemble', 'sass', 'jshint', 'connect', 'watch']);
+	grunt.registerTask('default', ['newer:assemble', 'newer:sass', 'newer:jshint']);
+	grunt.registerTask('install', ['newer:bower:install', 'newer:copy']);
+	grunt.registerTask('lint', ['newer:jshint']);
+	grunt.registerTask('compile', ['newer:assemble', 'newer:sass']);
+	grunt.registerTask('server', ['compile', 'newer:jshint', 'connect', 'watch']);
 	grunt.registerTask('build', []);
 };
