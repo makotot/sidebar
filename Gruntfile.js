@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 				livereload: true
 			},
 			html: {
-				files: ['<%= path.src %>/**/*.hbs', '<%= path.src %>/templates/includes/**/*.hbs'],
+				files: ['<%= path.src %>/**/*.hbs'],
 				tasks: ['newer:assemble']
 			},
 			js: {
@@ -57,15 +57,24 @@ module.exports = function (grunt) {
 
 		assemble: {
 			options: {
-				layout: '<%= path.src %>/layouts/default.hbs',
+				layoutdir: '<%= path.src %>/layouts/',
+				layout: 'default.hbs',
 				partials: ['<%= path.src %>/templates/includes/*.hbs'],
 				flatten: true,
 				data: '<%= path.src %>/data/*.{json,yml}'
 			},
 			pages: {
-				files: {
-					'.': ['<%= path.src %>/pages/*.hbs']
-				}
+				options: {
+					layout: 'default.hbs'
+				},
+				files: [
+					{
+						expand: true,
+						cwd: '<%= path.src %>/pages/',
+						src: 'index.hbs',
+						dest: '.'
+					}
+				]
 			}
 		},
 
@@ -135,6 +144,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('install', ['newer:bower:install', 'newer:copy']);
 	grunt.registerTask('lint', ['newer:jshint']);
 	grunt.registerTask('compile', ['newer:assemble', 'newer:sass']);
-	grunt.registerTask('server', ['compile', 'newer:jshint', 'connect', 'watch']);
+	grunt.registerTask('serve', ['compile', 'newer:jshint', 'connect', 'watch']);
 	grunt.registerTask('build', []);
 };

@@ -9,7 +9,6 @@
 		this.$sidebar = $(target);
 		this.$body = $(document.body);
 		this.$content = this.$body.find('.jsc-sidebar-content');
-		this.$trigger = this.$body.find('.jsc-sidebar-trigger');
 		this.sidebarW = this.$sidebar.width();
 		this.opts = opts;
 		this.meta = this.$sidebar.data('sidebar-options');
@@ -18,12 +17,15 @@
 	Sidebar.prototype = {
 
 		defaults: {
+			trigger: null,
 			pullCb: function () {},
 			pushCb: function () {}
 		},
 
 		init: function () {
 			this.config = $.extend({}, this.defaults, this.opts, this.meta);
+
+			this.$trigger = this.config.trigger ? this.$body.find(this.config.trigger) : this.$body.find('.jsc-sidebar-trigger');
 
 			this.detect3dEnabled();
 			this.attachEvent();
