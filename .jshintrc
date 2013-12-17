@@ -3,5 +3,9 @@
 	"eqeqeq": true,
 	"browser": true,
 	"unused": true,
-	"undef": true
+	"undef": true,
+	"expr": true,
+	"globals": {
+		"jQuery": true
+	}
 }

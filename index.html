@@ -24,7 +24,7 @@
 	</nav>
 	<section class="main-content">
 		<h1 class="headline"><span class="headline-main">Sidebar</span>JS</h1>
-		<p>v 0.0.6</p>
+		<p>v 0.0.7</p>
 		<p>SidebarJS is a jQuery plugin for side navigation.</p>
 		<p class="download"><a href="http://github.com/makotot/sidebar/" class="btn-download">Download</a></p>
 	</section>
@@ -46,6 +46,7 @@
 		<script>
 			$('#jsi-nav').sidebar({
 				trigger: '.jsc-sidebar-trigger',
+				scrollbarDisplay: true,
 				pullCb: function () { console.log('pull'); },
 				pushCb: function () { console.log('push'); }
 			});

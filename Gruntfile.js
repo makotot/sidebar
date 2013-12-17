@@ -5,7 +5,8 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		path: {
-			src: 'src'
+			src: 'src',
+			build: 'build'
 		},
 
 		watch: {
@@ -50,6 +51,7 @@ module.exports = function (grunt) {
 
 		jshint: {
 			options: {
+				jshintrc: true,
 				reporter: require('jshint-table-reporter')
 			},
 			all: ['<%= path.src %>/js/*.js']
@@ -131,6 +133,23 @@ module.exports = function (grunt) {
 						dest: 'js/'
 					}
 				]
+			},
+
+			build: {
+				files: [
+					{
+						expand: true,
+						flatten: true,
+						src: 'js/sidebar.js',
+						dest: '<%= path.build %>/'
+					},
+					{
+						expand: true,
+						flatten: true,
+						src: 'css/sidebar.css',
+						dest: '<%= path.build %>/'
+					}
+				]
 			}
 		}
 
@@ -145,5 +164,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('lint', ['newer:jshint']);
 	grunt.registerTask('compile', ['newer:assemble', 'newer:sass']);
 	grunt.registerTask('serve', ['compile', 'newer:jshint', 'connect', 'watch']);
-	grunt.registerTask('build', []);
+	grunt.registerTask('build', ['copy:build']);
 };

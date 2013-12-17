@@ -18,6 +18,7 @@
 
 		defaults: {
 			trigger: null,
+			scrollbarDisplay: false,
 			pullCb: function () {},
 			pushCb: function () {}
 		},
@@ -80,11 +81,11 @@
 			}, this));
 
 			this.$content
-				.on(this.pushTransitionEndEvent, $.proxy(function (e) {
+				.on(this.pushTransitionEndEvent, $.proxy(function () {
 					this.detectPushEnd();
 					this.config.pushCb();
 				}, this))
-				.on('click', $.proxy(function (e) {
+				.on('click', $.proxy(function () {
 					this.pull();
 				}, this));
 		},
@@ -113,14 +114,17 @@
 		},
 
 		slidePull: function () {
-			if (this.$content.data('sidebar-first-click') !== 1 || !this.$content.hasClass('jsc-sidebar-scroll-disabled')) {
+			if (this.$content.data('sidebar-first-click') !== 1 || !(this.$content.hasClass('jsc-sidebar-opened'))) {
 				return;
 			}
 
 			this.$content.stop().animate({
 				marginLeft: 0
 			}).promise().done($.proxy(function () {
-				this.$content.removeClass('jsc-sidebar-scroll-disabled');
+				this.$content.removeClass('jsc-sidebar-opened');
+				!this.config.scrollbarDisplay && this.$content.removeClass('jsc-sidebar-scroll-disabled');
+
+				this.config.pullCb();
 			}, this));
 		},
 
@@ -130,18 +134,23 @@
 			this.$content.stop().animate({
 				marginLeft: distance
 			}).promise().done($.proxy(function () {
-				this.$content.addClass('jsc-sidebar-scroll-disabled');
+				this.$content.addClass('jsc-sidebar-opened');
+				!this.config.scrollbarDisplay && this.$content.addClass('jsc-sidebar-scroll-disabled');
 
 				if (!this.$content.data('sidebar-first-click')) {
 					this.$content.data('sidebar-first-click', 1);
 				}
+				this.config.pushCb();
 
 			}, this));
 		},
 
 		detectPushEnd: function () {
+			this.$content.addClass('jsc-sidebar-opened');
+			!this.config.scrollbarDisplay && this.$content.addClass('jsc-sidebar-scroll-disabled');
+
 			this.$content
-				.addClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled')
+				.addClass('jsc-sidebar-push-end')
 				.off(this.pushTransitionEndEvent)
 				.on(this.pullTransitionEndEvent, $.proxy(function () {
 					this.detectPullEnd();
@@ -150,12 +159,16 @@
 		},
 
 		detectPullEnd: function () {
+			this.$content.removeClass('jsc-sidebar-disabled');
+			!this.config.scrollbarDisplay && this.$content.removeClass('jsc-sidebar-scroll-disabled');
+
 			this.$content
-				.removeClass('jsc-sidebar-push-end jsc-sidebar-scroll-disabled')
+				.removeClass('jsc-sidebar-push-end')
 				.addClass('jsc-sidebar-pull-end')
 				.off(this.pullTransitionEndEvent)
 				.on(this.pushTransitionEndEvent, $.proxy(function () {
 					this.detectPushEnd();
+					this.config.pushCb();
 				}, this));
 		}
 
