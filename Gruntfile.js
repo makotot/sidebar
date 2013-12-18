@@ -1,5 +1,7 @@
 module.exports = function (grunt) {
 
+	require('time-grunt')(grunt);
+
 	grunt.initConfig({
 
 		pkg: grunt.file.readJSON('package.json'),
@@ -151,6 +153,24 @@ module.exports = function (grunt) {
 					}
 				]
 			}
+		},
+
+		uglify: {
+			my_target: {
+				files: {
+					'<%= path.build %>/sidebar.min.js': ['js/sidebar.js']
+				}
+			}
+		},
+
+		cssmin: {
+			minify: {
+				expand: true,
+				cwd: 'css/',
+				src: 'sidebar.css',
+				dest: '<%= path.build %>',
+				ext: '.min.css'
+			}
 		}
 
 	});
@@ -164,5 +184,5 @@ module.exports = function (grunt) {
 	grunt.registerTask('lint', ['newer:jshint']);
 	grunt.registerTask('compile', ['newer:assemble', 'newer:sass']);
 	grunt.registerTask('serve', ['compile', 'newer:jshint', 'connect', 'watch']);
-	grunt.registerTask('build', ['copy:build']);
+	grunt.registerTask('build', ['newer:uglify', 'newer:cssmin', 'newer:copy:build']);
 };
