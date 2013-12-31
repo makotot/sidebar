@@ -1,24 +1,25 @@
 {
-  "name": "sidebar",
-  "version": "0.0.8",
-  "description": "",
-  "author": "makotot",
-  "license": "MIT",
-  "devDependencies": {
-    "grunt": "*",
-    "assemble": "*",
-    "load-grunt-tasks": "*",
-    "grunt-contrib-sass": "*",
-    "grunt-contrib-connect": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-copy": "*",
-    "connect-livereload": "*",
-    "grunt-bower-task": "*",
-    "jshint-table-reporter": "*",
-    "grunt-newer": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-cssmin": "*",
-    "time-grunt": "~0.2.5"
-  }
+	"name": "sidebar",
+	"version": "0.0.8",
+	"description": "",
+	"author": "makotot",
+	"license": "MIT",
+	"devDependencies": {
+		"grunt": "*",
+		"assemble": "*",
+		"grunt-contrib-sass": "*",
+		"grunt-contrib-connect": "*",
+		"grunt-contrib-watch": "*",
+		"grunt-contrib-jshint": "*",
+		"grunt-contrib-copy": "*",
+		"connect-livereload": "*",
+		"grunt-bower-task": "*",
+		"jshint-table-reporter": "*",
+		"grunt-newer": "*",
+		"grunt-contrib-uglify": "*",
+		"grunt-contrib-cssmin": "*",
+		"time-grunt": "~0.2.5",
+		"grunt-htmlhint": "*",
+		"jit-grunt": "*"
+	}
 }

@@ -17,19 +17,19 @@ module.exports = function (grunt) {
 			},
 			html: {
 				files: ['<%= path.src %>/**/*.hbs'],
-				tasks: ['newer:assemble']
+				tasks: ['assemble']
 			},
 			js: {
 				files: '<%= path.src %>/js/*.js',
-				tasks: ['newer:copy:js', 'newer:jshint']
+				tasks: ['newer:copy:js', 'jshint']
 			},
 			sass: {
 				files: '<%= path.src %>/css/sass/**/*.sass',
-				tasks: ['newer:sass']
+				tasks: ['sass']
 			},
 			json: {
 				files: '<%= path.src %>/data/*.json',
-				tasks: ['newer:assemble']
+				tasks: ['assemble']
 			}
 		},
 
@@ -171,18 +171,29 @@ module.exports = function (grunt) {
 				dest: '<%= path.build %>',
 				ext: '.min.css'
 			}
+		},
+
+		htmlhint: {
+			options: {
+				htmlhintrc: '.htmlhintrc',
+				force: true
+			},
+			html: {
+				src: ['*.html']
+			}
 		}
 
 	});
 
-	require('load-grunt-tasks')(grunt, {
-		pattern: ['grunt-*', 'assemble']
+	require('jit-grunt')(grunt, {
+		bower: 'grunt-bower-task'
 	});
 
-	grunt.registerTask('default', ['newer:assemble', 'newer:sass', 'newer:jshint']);
+	grunt.registerTask('default', ['assemble', 'sass', 'lint']);
 	grunt.registerTask('install', ['newer:bower:install', 'newer:copy']);
-	grunt.registerTask('lint', ['newer:jshint']);
-	grunt.registerTask('compile', ['newer:assemble', 'newer:sass']);
-	grunt.registerTask('serve', ['compile', 'newer:jshint', 'connect', 'watch']);
-	grunt.registerTask('build', ['newer:uglify', 'newer:cssmin', 'newer:copy:build']);
+	grunt.registerTask('lint', ['jshint', 'htmlhint']);
+	grunt.registerTask('compile', ['assemble', 'sass']);
+	grunt.registerTask('serve', ['compile', 'lint', 'connect', 'watch']);
+	grunt.registerTask('build', ['uglify', 'cssmin', 'copy:build']);
+
 };
