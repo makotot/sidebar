@@ -13,8 +13,8 @@
     "tests"
   ],
   "dependencies": {
-	"jquery": "*",
-	"html5shiv": "*",
-	"normalize-css": "*"
+    "jquery": "*",
+    "html5shiv": "*",
+    "normalize-css": "*"
   }
 }

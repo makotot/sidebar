@@ -181,12 +181,17 @@ module.exports = function (grunt) {
 			html: {
 				src: ['*.html']
 			}
+		},
+
+		version: {
+			files: ['bower.json', 'sidebar.jquery.json']
 		}
 
 	});
 
 	require('jit-grunt')(grunt, {
-		bower: 'grunt-bower-task'
+		bower: 'grunt-bower-task',
+		version: 'grunt-sync-version'
 	});
 
 	grunt.registerTask('default', ['assemble', 'sass', 'lint']);
@@ -194,6 +199,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('lint', ['jshint', 'htmlhint']);
 	grunt.registerTask('compile', ['assemble', 'sass']);
 	grunt.registerTask('serve', ['compile', 'lint', 'connect', 'watch']);
-	grunt.registerTask('build', ['uglify', 'cssmin', 'copy:build']);
+	grunt.registerTask('version', ['version']);
+	grunt.registerTask('build', ['uglify', 'cssmin', 'copy:build', 'version']);
 
 };
