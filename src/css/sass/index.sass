@@ -1,17 +1,18 @@
 @charset "UTF-8"
 
 @import "modules/base"
+@import "modules/colors"
 
 .wrapper
     width: 100%
     box-sizing: border-box
-    border-top: 2px solid #6C6C6C
-    background-color: #FEFEFE
+    border-top: 2px solid $border
+    background-color: $bg
 
 .link-menu
     font-size: 2.2rem
     &:hover
-        color: #807D7D
+        color: $link-menu-hover
 
 .main-content
     padding-top: 80px
@@ -23,7 +24,7 @@
     font-weight: 400
 
 .headline-main
-    color: #3C3C3C
+    color: $headline-main
 
 .download
     padding-top: 40px
@@ -32,25 +33,25 @@
     display: inline-block
     text-align: center
     padding: 6px
-    background-color: #424242
-    color: #FFF
-    border: 2px solid #6C6C6C
+    background-color: $btn-bg
+    color: $btn
+    border: 2px solid $border
     font-size: 1.2rem
     &:hover
-        background-color: #6C6C6C
-        color: #ECECEC
-        border: 2px solid #424242
+        background-color: $btn-bg-hover
+        color: $btn-hover
+        border: 2px solid $btn-border-hover
 
 .sidebar
-    background-color: #312F2F
+    background-color: $sidebar-bg
     li + li
         margin-top: 12px
     li
         a
             padding: 4px 10px
             display: block
-            color: #CECECE
+            color: $sidebar-link
             &:hover
-                background-color: #424242
+                background-color: $sidebar-link-hover
         a.current
-            background-color: #6B6464
+            background-color: $sidebar-link-current
