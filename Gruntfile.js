@@ -207,6 +207,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('compile', ['assemble', 'sass']);
 	grunt.registerTask('serve', ['compile', 'lint', 'connect', 'watch']);
 	grunt.registerTask('version', ['version']);
-	grunt.registerTask('build', ['uglify', 'cssmin', 'copy:build', 'version']);
+	grunt.registerTask('build', ['uglify', 'cssmin', 'copy:build']);
 
 };
