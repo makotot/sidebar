@@ -7,7 +7,6 @@
 	"spec-char-escape": true,
 	"id-unique": true,
 	"src-not-empty": true,
-	"tag-self-close": true,
 	"head-script-disabled": true,
 	"style-disabled": true
 }
