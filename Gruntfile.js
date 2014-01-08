@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 			},
 			html: {
 				files: ['<%= path.src %>/**/*.hbs'],
-				tasks: ['assemble']
+				tasks: ['assemble', 'htmlhint']
 			},
 			js: {
 				files: '<%= path.src %>/js/*.js',
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 			},
 			sass: {
 				files: '<%= path.src %>/css/sass/**/*.sass',
-				tasks: ['sass']
+				tasks: ['sass', 'csslint']
 			},
 			json: {
 				files: '<%= path.src %>/data/*.json',
@@ -181,6 +181,13 @@ module.exports = function (grunt) {
 			html: {
 				src: ['*.html']
 			}
+		},
+
+		csslint: {
+			options: {
+				csslintrc: '.csslintrc'
+			},
+			src: ['css/*.css']
 		},
 
 		version: {

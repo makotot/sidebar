@@ -23,23 +23,25 @@ html, body
     background-color: #FFF
 
 .jsc-sidebar-pulled
-    transition: transform 0.5s ease
     -webkit-transition: -webkit-transform $sidebar-duration ease
     -moz-transition: -moz-transform $sidebar-duration ease
     -ms-transition: -ms-transform $sidebar-duration ease
-    transform: translate3d(0, 0, 0)
+    -o-transition: -o-transform $sidebar-duration ease
+    transition: transform $sidebar-duration ease
     -webkit-transform: translate3d(0, 0, 0)
     -moz-transform: translate3d(0, 0, 0)
     -ms-transform: translate3d(0, 0, 0)
+    -o-transform: translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0)
     -webkit-backface-visibility: hidden
     -webkit-perspective: 1000
 
 .jsc-sidebar-pushed
-    transform: translate3d($sidebar-w, 0, 0)
     -webkit-transform: translate3d($sidebar-w, 0, 0)
     -moz-transform: translate3d($sidebar-w, 0, 0)
     -ms-transform: translate3d($sidebar-w, 0, 0)
-
+    -o-transform: translate3d($sidebar-w, 0, 0)
+    transform: translate3d($sidebar-w, 0, 0)
 
 .jsc-sidebar-scroll-disabled
     position: fixed

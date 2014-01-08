@@ -21,6 +21,7 @@
     "time-grunt": "~0.2.5",
     "grunt-htmlhint": "*",
     "jit-grunt": "*",
-    "grunt-sync-version": "*"
+    "grunt-sync-version": "*",
+    "grunt-contrib-csslint": "~0.2.0"
   }
 }
