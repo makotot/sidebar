@@ -203,7 +203,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('default', ['assemble', 'sass', 'lint']);
 	grunt.registerTask('install', ['newer:bower:install', 'newer:copy']);
-	grunt.registerTask('lint', ['jshint', 'htmlhint']);
+	grunt.registerTask('lint', ['jshint', 'htmlhint', 'csslint']);
 	grunt.registerTask('compile', ['assemble', 'sass']);
 	grunt.registerTask('serve', ['compile', 'lint', 'connect', 'watch']);
 	grunt.registerTask('version', ['version']);
