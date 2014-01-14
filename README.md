@@ -15,3 +15,7 @@ http://makotot.github.io/sidebar/
 
 ## License
 MIT
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/makotot/sidebar/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
