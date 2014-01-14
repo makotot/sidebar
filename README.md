@@ -1,4 +1,4 @@
-# SidebarJS [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# SidebarJS [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![Views in the last 24 hours](https://sourcegraph.com/api/repos/github.com/makotot/sidebar/counters/views-24h.png)](https://sourcegraph.com/github.com/makotot/sidebar)
 
 SidebarJS is a jQuery plugin for sidebar.
 
