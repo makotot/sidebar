@@ -54,7 +54,7 @@ module.exports = function (grunt) {
     jshint: {
       options: {
         jshintrc: true,
-        reporter: require('jshint-table-reporter')
+        reporter: require('jshint-stylish')
       },
       all: ['<%= path.src %>/js/*.js']
     },
@@ -216,7 +216,7 @@ module.exports = function (grunt) {
   grunt.registerTask('lint', ['jshint', 'htmlhint', 'csslint']);
   grunt.registerTask('compile', ['assemble', 'sass', 'newer:copy:js', 'newer:copy:sass']);
   grunt.registerTask('serve', ['compile', 'lint', 'connect', 'watch']);
-  grunt.registerTask('version', ['version']);
+  grunt.registerTask('sync', ['version']);
   grunt.registerTask('build', ['uglify', 'cssmin', 'copy:build']);
 
 };

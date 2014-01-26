@@ -81,11 +81,11 @@
 			}, this));
 
 			this.$content
-				.on(this.pushTransitionEndEvent, $.proxy(function (e) {
+				.on(this.pushTransitionEndEvent, $.proxy(function () {
 					this.detectPushEnd();
 					this.config.pushCb();
 				}, this))
-				.on('click', $.proxy(function (e) {
+				.on('click', $.proxy(function () {
 					this.pull();
 				}, this));
 		},
