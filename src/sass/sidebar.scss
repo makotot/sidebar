@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+$sidebar-w: 220px;
+$sidebar-duration: 0.5s;
+
+html, body	{
+	height: 100%;
+	overflow-x: hidden;
+}
+
+.jsc-sidebar	{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: $sidebar-w;
+	height: 100%;
+}
+
+.jsc-sidebar-content	{
+	position: relative;
+	top: 0;
+	left: 0;
+	min-height: 100%;
+	z-index: 10;
+	background-color: #FFF;
+}
+
+.jsc-sidebar-pulled	{
+	-webkit-transition: -webkit-transform $sidebar-duration ease;
+	-moz-transition: -moz-transform $sidebar-duration ease;
+	-ms-transition: -ms-transform $sidebar-duration ease;
+	-o-transition: -o-transform $sidebar-duration ease;
+	transition: transform $sidebar-duration ease;
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000;
+}
+
+.jsc-sidebar-pushed	{
+	-webkit-transform: translate3d($sidebar-w, 0, 0);
+	-moz-transform: translate3d($sidebar-w, 0, 0);
+	-ms-transform: translate3d($sidebar-w, 0, 0);
+	-o-transform: translate3d($sidebar-w, 0, 0);
+	transform: translate3d($sidebar-w, 0, 0);
+}
+
+.jsc-sidebar-scroll-disabled	{
+	position: fixed;
+	overflow: hidden;
+}

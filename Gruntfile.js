@@ -24,7 +24,7 @@ module.exports = function (grunt) {
         tasks: ['newer:copy:js', 'jshint']
       },
       sass: {
-        files: '<%= path.src %>/sass/**/*.sass',
+        files: '<%= path.src %>/sass/**/*.scss',
         tasks: ['sass', 'newer:copy:sass', 'csslint']
       },
       json: {
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= path.src %>/sass',
-          src: '*.sass',
+          src: '*.scss',
           dest: '<%= path.src %>/css',
           ext: '.css'
         }]

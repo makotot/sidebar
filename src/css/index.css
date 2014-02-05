@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-size: 20px;
-  font-family: "Source Sans Pro", helvetica, sans-serif;
+  font-family: 'Source Sans Pro', helvetica, sans-serif;
   font-weight: 200;
   color: #6e6e6e; }
 
@@ -76,4 +76,4 @@ ul {
     .sidebar li a:hover {
       background-color: #424242; }
   .sidebar li .current {
-    background-color: #6b6464; }
+    background-color: #66657a; }
