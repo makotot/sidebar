@@ -18,36 +18,83 @@
 }
 
 .main-content	{
-	padding-top: 80px;
-	padding-bottom: 80px;
+	padding: 80px 40px 20px;
 	text-align: center;
+	> .main-content-header	{
+		padding-bottom: 80px;
+	}
+	> .main-content-body	{
+		padding-top: 30px;
+		padding-bottom: 30px;
+		border-top: 1px solid $content-border;
+		text-align: left;
+		a	{
+			text-decoration: underline;
+		}
+		> .main-content-body-inner	{
+			padding-top: 10px;
+			padding-bottom: 20px;
+			> h2	{
+				padding-left: 10px;
+				padding-right: 10px;
+				border-left: 12px solid $content-headline-border;
+				background-color: $content-headline-bg;
+				color: $content-headline-color;
+				font-size: 1.6rem;
+			}
+			> h2 + ul	{
+				padding-left: 14px;
+				padding-right: 14px;
+				> li + li	{
+					padding-top: 20px;
+				}
+			}
+			h3	{
+				border-bottom: 1px solid $content-headline-border;
+			}
+		}
+	}
 }
 
 .headline	{
-	font-size: 3.6rem;
+	font-size: 4.0rem;
 	font-weight: 400;
+	color: $headline-sub;
 }
 
 .headline-main	{
 	color: $headline-main;
 }
 
-.download	{
-	padding-top: 40px;
+.version	{
+	padding-top: 0;
+	font-size: 1.4rem;
 }
 
-.btn-download	{
+.btn-list	{
+	@extend .cfix;
 	display: inline-block;
 	text-align: center;
-	padding: 6px;
+	> li	{
+		float: left;
+	}
+	> li + li	{
+		padding-left: 10px;
+	}
+}
+
+.btn	{
+	display: inline-block;
+	text-align: center;
+	padding: 6px 10px;
 	background-color: $btn-bg;
-	color: $btn;
-	border: 2px solid $border;
+	color: $btn-color;
+	border-bottom: 4px solid $btn-border;
 	font-size: 1.2rem;
 	&:hover	{
 		background-color: $btn-bg-hover;
 		color: $btn-hover;
-		border: 2px solid $btn-border-hover;
+		border-bottom: 4px solid $btn-border-hover;
 	}
 }
 

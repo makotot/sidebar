@@ -63,7 +63,7 @@ module.exports = function (grunt) {
       options: {
         layoutdir: '<%= path.src %>/layouts/',
         layout: 'default.hbs',
-        partials: ['<%= path.src %>/templates/includes/*.hbs'],
+        partials: ['<%= path.src %>/templates/*.hbs'],
         flatten: true,
         data: '<%= path.src %>/data/*.{json,yml}'
       },
@@ -75,7 +75,7 @@ module.exports = function (grunt) {
           {
             expand: true,
             cwd: '<%= path.src %>/pages/',
-            src: 'index.hbs',
+            src: '*.hbs',
             dest: '.'
           }
         ]

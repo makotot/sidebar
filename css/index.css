@@ -16,15 +16,38 @@ p {
   padding-bottom: 10px; }
 
 h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0;
+  font-weight: 200; }
+
+h2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+  font-weight: 200; }
+
+h3 {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin: 0;
   font-weight: 200; }
 
 ul {
   list-style-type: none;
   padding: 0; }
 
+footer {
+  text-align: center; }
+
 ::selection {
   background-color: #e77878;
   color: white; }
+
+.cfix:after, .btn-list:after {
+  display: block;
+  content: '';
+  clear: both; }
 
 .wrapper {
   width: 100%;
@@ -38,32 +61,67 @@ ul {
     color: #807d7d; }
 
 .main-content {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px 40px 20px;
   text-align: center; }
+  .main-content > .main-content-header {
+    padding-bottom: 80px; }
+  .main-content > .main-content-body {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #d4d4d4;
+    text-align: left; }
+    .main-content > .main-content-body a {
+      text-decoration: underline; }
+    .main-content > .main-content-body > .main-content-body-inner {
+      padding-top: 10px;
+      padding-bottom: 20px; }
+      .main-content > .main-content-body > .main-content-body-inner > h2 {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-left: 12px solid #51648b;
+        background-color: #313b4e;
+        color: #91a1b9;
+        font-size: 1.6rem; }
+      .main-content > .main-content-body > .main-content-body-inner > h2 + ul {
+        padding-left: 14px;
+        padding-right: 14px; }
+        .main-content > .main-content-body > .main-content-body-inner > h2 + ul > li + li {
+          padding-top: 20px; }
+      .main-content > .main-content-body > .main-content-body-inner h3 {
+        border-bottom: 1px solid #51648b; }
 
 .headline {
-  font-size: 3.6rem;
-  font-weight: 400; }
+  font-size: 4.0rem;
+  font-weight: 400;
+  color: #51648b; }
 
 .headline-main {
-  color: #3c3c3c; }
+  color: #535353; }
 
-.download {
-  padding-top: 40px; }
+.version {
+  padding-top: 0;
+  font-size: 1.4rem; }
 
-.btn-download {
+.btn-list {
+  display: inline-block;
+  text-align: center; }
+  .btn-list > li {
+    float: left; }
+  .btn-list > li + li {
+    padding-left: 10px; }
+
+.btn {
   display: inline-block;
   text-align: center;
-  padding: 6px;
-  background-color: #424242;
-  color: white;
-  border: 2px solid #6c6c6c;
+  padding: 6px 10px;
+  background-color: #313b4e;
+  color: #91a1b9;
+  border-bottom: 4px solid #51648b;
   font-size: 1.2rem; }
-  .btn-download:hover {
+  .btn:hover {
     background-color: #6c6c6c;
     color: #ececec;
-    border: 2px solid #424242; }
+    border-bottom: 4px solid #424242; }
 
 .sidebar {
   background-color: #312f2f; }
@@ -76,4 +134,4 @@ ul {
     .sidebar li a:hover {
       background-color: #424242; }
   .sidebar li .current {
-    background-color: #66657a; }
+    background-color: #51648b; }

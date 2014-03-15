@@ -9,9 +9,30 @@ version: <%= pkg.version %>
 		<a href="#" class="icon-menu link-menu jsc-sidebar-trigger"></a>
 	</nav>
 	<section class="main-content">
-		<h1 class="headline"><span class="headline-main">Sidebar</span>JS</h1>
-		<p>v {{version}}</p>
-		<p>SidebarJS is a jQuery plugin for side navigation.</p>
-		<p class="download"><a href="http://github.com/makotot/sidebar/" class="btn-download">Download</a></p>
+		<div class="main-content-header">
+			<h1 class="headline"><span class="headline-main">Sidebar</span>JS</h1>
+			<p class="version">v {{version}}</p>
+			<p>SidebarJS is a jQuery plugin for side navigation.</p>
+			<ul class="btn-list">
+				<li><a href="http://github.com/makotot/sidebar" class="btn">View on Github</a></li>
+				<li><a href="http://github.com/makotot/sidebar/releases/{{version}}" class="btn">Download</a></li>
+			</ul>
+		</div>
+		<div class="main-content-body">
+			<div class="main-content-body-inner">
+				<h2>Public API</h2>
+				<ul>
+					<li>
+						<h3>.pull()</h3>
+						<p><a href="#" id="api-pull">Open</a> Sidebar content from JavaScript.</p>
+					</li>
+					<li>
+						<h3>.push()</h3>
+						<p><a href="#" id="api-push">Close</a> Sidebar content from JavaScript.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</section>
+
 </div>

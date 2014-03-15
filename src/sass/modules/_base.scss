@@ -23,6 +23,23 @@ p	{
 }
 
 h1	{
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin: 0;
+	font-weight: 200;
+}
+
+h2	{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0;
+	font-weight: 200;
+}
+
+h3	{
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin: 0;
 	font-weight: 200;
 }
 
@@ -31,8 +48,21 @@ ul	{
 	padding: 0;
 }
 
+footer	{
+	text-align: center;
+}
+
 
 ::selection	{
 	background-color: $selection-bg;
 	color: $selection;
 }
+
+.cfix	{
+	&:after	{
+		display: block;
+		content: '';
+		clear: both;
+	}
+}
+
