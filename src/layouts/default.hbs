@@ -29,11 +29,11 @@
 				pushCb: function () { console.log('push'); }
 			});
 
-			$('#api-pull').on('click', function (e) {
+			$('#api-push').on('click', function (e) {
 				e.preventDefault();
 				$('#jsi-nav').data('sidebar').push();
 			});
-			$('#api-push').on('click', function (e) {
+			$('#api-pull').on('click', function (e) {
 				e.preventDefault();
 				$('#jsi-nav').data('sidebar').pull();
 			});
